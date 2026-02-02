@@ -1,0 +1,18 @@
+# --- Foundry Artifacts ---
+out/
+cache/
+artifacts/
+
+# --- Dependencies ---
+lib/
+
+# --- Logs & Scripts Outputs ---
+broadcast/
+/scripts/*.log
+
+# --- Environment Variables ---
+.env
+
+# --- OS Specific ---
+.DS_Store
+Thumbs.db
