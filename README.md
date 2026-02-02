@@ -1,66 +1,55 @@
-## Foundry
+# 🏰 Crown Property Marketplace
 
-**Foundry is a blazing fast, portable and modular toolkit for Ethereum application development written in Rust.**
+![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)
+![Solidity](https://img.shields.io/badge/Solidity-%5E0.8.20-blue)
+![Foundry](https://img.shields.io/badge/Built%20with-Foundry-orange)
+![Coverage](https://img.shields.io/badge/Tests-100%25-success)
 
-Foundry consists of:
+**CrownPropertyMarketplace** is a decentralized platform for trading property NFTs, prioritizing security through the **CEI** pattern and efficiency via **Custom Errors**. It enables users to list, update, and cancel sales with real-time approval verification while integrating automated **service fee** logic (1%). The system secures funds using `ReentrancyGuard` and offers the contract owner transparent management of accumulated fees.
 
-- **Forge**: Ethereum testing framework (like Truffle, Hardhat and DappTools).
-- **Cast**: Swiss army knife for interacting with EVM smart contracts, sending transactions and getting chain data.
-- **Anvil**: Local Ethereum node, akin to Ganache, Hardhat Network.
-- **Chisel**: Fast, utilitarian, and verbose solidity REPL.
+---
 
-## Documentation
+## ⚡ Key Features
 
-https://book.getfoundry.sh/
+- **Security First:** Implements the _Checks-Effects-Interactions_ pattern and protection against reentrancy attacks.
+- **Gas Optimized:** Uses `Custom Errors` instead of strings for reverting transactions, saving gas on deployment and execution.
+- **Robust Validation:** Verifies `isApprovedForAll` before listing to prevent failed transactions and improve UX.
+- **Fuzz Testing:** Mathematical logic for fees is tested with random values to ensure solvency under any scenario.
 
-## Usage
+## 🛠️ Tech Stack
 
-### Build
+- **Language:** Solidity `^0.8.20`
+- **Framework:** Foundry (Forge)
+- **Standards:** OpenZeppelin (ERC721, Ownable, ReentrancyGuard)
 
-```shell
-$ forge build
-```
+## 🚀 Installation & Usage
 
-### Test
+### Prerequisites
 
-```shell
-$ forge test
-```
+Ensure you have [Foundry](https://book.getfoundry.sh/getting-started/installation) installed.
 
-### Format
+### 1. Clone the repository
 
-```shell
-$ forge fmt
-```
+````bash
+git clone [https://github.com/YOUR_USERNAME/crown-property-marketplace.git](https://github.com/YOUR_USERNAME/crown-property-marketplace.git)
+cd crown-property-marketplace
 
-### Gas Snapshots
+### 2. Install Dependencies
+```bash
+forge install
 
-```shell
-$ forge snapshot
-```
+### 3. Build
+```bash
+forge build
 
-### Anvil
+### 🧪 Tests & Coverage
+This project features an exhaustive test suite covering 100% of the contract logic, including Fuzzing tests.
 
-```shell
-$ anvil
-```
+### Run Tests:
+```bash
+forge test --match-test (test name)
 
-### Deploy
-
-```shell
-$ forge script script/Counter.s.sol:CounterScript --rpc-url <your_rpc_url> --private-key <your_private_key>
-```
-
-### Cast
-
-```shell
-$ cast <subcommand>
-```
-
-### Help
-
-```shell
-$ forge --help
-$ anvil --help
-$ cast --help
-```
+### Check Coverage:
+```bash
+forge coverage
+````
